@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Art Gallery - JavaScript Styles and Animations</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f4f1;
+            color: #333;
+        }
+
+        /* HEADER */
+
+        header {
+            background: linear-gradient(135deg, #4b164c, #9b4d96);
+            color: white;
+            text-align: center;
+            padding: 28px 20px;
+        }
+
+        #title {
+            margin: 5px;
+            font-size: 38px;
+        }
+
+        #msg {
+            font-size: 18px;
+            margin: 10px;
+        }
+
+
+        /* NAVIGATION */
+
+        nav {
+            background-color: #28152b;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 18px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #ffd166;
+        }
+
+
+        /* MAIN */
+
+        .main {
+            width: 92%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* JAVASCRIPT SECTION */
+
+        .deal-section {
+            background-color: white;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px #d8ced8;
+            text-align: center;
+        }
+
+        .deal-section h2 {
+            color: #7b2678;
+        }
+
+
+        /* ART GALLERY TEXT */
+
+        #artwork {
+            width: 500px;
+            max-width: 90%;
+            margin: 25px auto;
+            padding: 35px 20px;
+            background-color: #f3e8f4;
+            color: #7b2678;
+            border-radius: 18px;
+            font-size: 28px;
+            font-weight: bold;
+            position: relative;
+            left: 0;
+            opacity: 1;
+            box-shadow: 0 6px 15px #bbb;
+        }
+
+        #artwork span {
+            font-size: 18px;
+            font-weight: normal;
+            color: #555;
+        }
+
+
+        /* BUTTONS */
+
+        .buttons {
+            margin-top: 15px;
+        }
+
+        button {
+            border: none;
+            padding: 11px 17px;
+            margin: 5px;
+            border-radius: 20px;
+            background-color: #7b2678;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #4b164c;
+            transform: scale(1.05);
+        }
+
+
+        /* GALLERY HEADING */
+
+        #gallery {
+            text-align: center;
+            color: #7b2678;
+            margin-top: 40px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+        }
+
+
+        /* ART CARDS */
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 22px;
+            flex-wrap: wrap;
+            margin: 25px 0 35px;
+        }
+
+        .card {
+            width: 220px;
+            background-color: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 5px 15px #d2c8d2;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+
+        /* ART SYMBOL */
+
+        .art-symbol {
+            height: 130px;
+            background-color: #eee5ef;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 55px;
+        }
+
+        .card-content {
+            padding: 14px;
+            text-align: center;
+        }
+
+        .card h3 {
+            color: #7b2678;
+            font-size: 20px;
+            margin: 5px 0 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #d97706;
+            font-size: 16px;
+        }
+
+
+        /* DATE AND TIME */
+
+        #time {
+            background-color: #eee5ef;
+            color: #7b2678;
+            font-weight: bold;
+            font-size: 17px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background-color: #28152b;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            nav a {
+                display: block;
+                margin: 10px;
+            }
+
+            #title {
+                font-size: 30px;
+            }
+
+            .deal-section {
+                padding: 20px;
+            }
+
+            .card {
+                width: 90%;
+                max-width: 300px;
+            }
+
+            #artwork {
+                width: 90%;
+                font-size: 24px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1 id="title">
+            Art Gallery
+        </h1>
+
+        <p id="msg">
+            Explore creativity. Discover beautiful art!
+        </p>
+
+    </header>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <a href="#home">Home</a>
+
+        <a href="#gallery">Gallery</a>
+
+        <a href="#artists">Artists</a>
+
+        <a href="mailto:artgallery@gmail.com">
+            Email
+        </a>
+
+        <a href="tel:9876543210">
+            Call
+        </a>
+
+    </nav>
+
+
+    <div class="main">
+
+
+        <!-- JAVASCRIPT DEMONSTRATION -->
+
+        <section class="deal-section" id="home">
+
+            <h2>
+                🎨 Featured Artwork
+            </h2>
+
+            <p>
+                Use the buttons to change the style and animation.
+            </p>
+
+
+            <!-- ART GALLERY TEXT -->
+
+            <div id="artwork">
+
+                🎨 ART GALLERY
+
+                <br><br>
+
+                <span>
+                    Where Creativity Comes Alive
+                </span>
+
+            </div>
+
+
+            <!-- JAVASCRIPT BUTTONS -->
+
+            <div class="buttons">
+
+                <button onclick="changeStyle()">
+                    Change Style
+                </button>
+
+                <button onclick="hideArtwork()">
+                    Hide
+                </button>
+
+                <button onclick="showArtwork()">
+                    Show
+                </button>
+
+                <button onclick="moveArtwork()">
+                    Move
+                </button>
+
+                <button onclick="fadeArtwork()">
+                    Fade
+                </button>
+
+                <button onclick="resetArtwork()">
+                    Reset
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- GALLERY SECTION -->
+
+        <h2 id="gallery">
+            🖼️ Our Art Collection
+        </h2>
+
+        <p class="subtitle">
+            Explore different forms of creativity and artistic expression
+        </p>
+
+
+        <div class="gallery">
+
+
+            <!-- PAINTINGS -->
+
+            <div class="card">
+
+                <div class="art-symbol">
+                    🎨
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        🎨 Paintings
+                    </h3>
+
+                    <p>
+                        Beautiful paintings created using different artistic styles.
+                    </p>
+
+                    <p class="price">
+                        From ₹2,000
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SCULPTURES -->
+
+            <div class="card">
+
+                <div class="art-symbol">
+                    🗿
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        🗿 Sculptures
+                    </h3>
+
+                    <p>
+                        Creative sculptures that represent imagination and culture.
+                    </p>
+
+                    <p class="price">
+                        From ₹5,000
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- DIGITAL ART -->
+
+            <div class="card">
+
+                <div class="art-symbol">
+                    💻
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        💻 Digital Art
+                    </h3>
+
+                    <p>
+                        Modern artwork designed using digital technology.
+                    </p>
+
+                    <p class="price">
+                        From ₹1,500
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTOGRAPHY -->
+
+            <div class="card">
+
+                <div class="art-symbol">
+                    📷
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        📷 Photography
+                    </h3>
+
+                    <p>
+                        Artistic photographs capturing beautiful moments and places.
+                    </p>
+
+                    <p class="price">
+                        From ₹1,000
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SKETCHES -->
+
+            <div class="card">
+
+                <div class="art-symbol">
+                    ✏️
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        ✏️ Sketches
+                    </h3>
+
+                    <p>
+                        Detailed pencil sketches showcasing creativity and skill.
+                    </p>
+
+                    <p class="price">
+                        From ₹800
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ARTISTS SECTION -->
+
+        <section class="deal-section" id="artists">
+
+            <h2>
+                👩‍🎨 Featured Artists
+            </h2>
+
+            <p>
+                Discover talented artists and their unique artistic styles.
+            </p>
+
+            <p>
+                🎨 Painting &nbsp; | &nbsp;
+                🗿 Sculpture &nbsp; | &nbsp;
+                💻 Digital Art
+            </p>
+
+        </section>
+
+
+        <!-- LIVE DATE AND TIME -->
+
+        <p id="time"></p>
+
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        Art Gallery © 2026 | Creativity Beyond Imagination
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+
+        /* 1. CHANGE STYLE */
+
+        function changeStyle() {
+
+            var title = document.getElementById("title");
+
+            title.style.color = "#ffd166";
+
+            title.style.fontSize = "44px";
+
+        }
+
+
+        /* 2. HIDE ARTWORK */
+
+        function hideArtwork() {
+
+            document.getElementById("artwork").style.display = "none";
+
+        }
+
+
+        /* 3. SHOW ARTWORK */
+
+        function showArtwork() {
+
+            document.getElementById("artwork").style.display = "block";
+
+        }
+
+
+        /* 4. MOVE ARTWORK */
+
+        function moveArtwork() {
+
+            var box = document.getElementById("artwork");
+
+            var position = 0;
+
+            var animation = setInterval(function() {
+
+                if (position >= 180) {
+
+                    clearInterval(animation);
+
+                }
+
+                else {
+
+                    position++;
+
+                    box.style.left = position + "px";
+
+                }
+
+            }, 10);
+
+        }
+
+
+        /* 5. FADE ARTWORK */
+
+        function fadeArtwork() {
+
+            var box = document.getElementById("artwork");
+
+            var opacity = 1;
+
+            var animation = setInterval(function() {
+
+                if (opacity <= 0) {
+
+                    clearInterval(animation);
+
+                }
+
+                else {
+
+                    opacity = opacity - 0.05;
+
+                    box.style.opacity = opacity;
+
+                }
+
+            }, 50);
+
+        }
+
+
+        /* 6. RESET ARTWORK */
+
+        function resetArtwork() {
+
+            var box = document.getElementById("artwork");
+
+            box.style.display = "block";
+
+            box.style.left = "0px";
+
+            box.style.opacity = "1";
+
+        }
+
+
+        /* 7. DATE AND TIME */
+
+        function showTime() {
+
+            var current = new Date();
+
+            document.getElementById("time").innerHTML =
+
+                "📅 Date: " +
+                current.toLocaleDateString() +
+                " &nbsp; | &nbsp; ⏰ Time: " +
+                current.toLocaleTimeString();
+
+        }
+
+
+        /* 8. SETINTERVAL */
+
+        showTime();
+
+        setInterval(showTime, 1000);
+
+
+        /* 9. SETTIMEOUT */
+
+        setTimeout(function() {
+
+            document.getElementById("msg").innerHTML =
+                "✨ Welcome to Art Gallery – Where creativity comes alive!";
+
+        }, 2000);
+
+
+    </script>
+
+
+</body>
+
+</html>
